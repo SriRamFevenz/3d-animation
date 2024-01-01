@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #212121;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    color: #f00;
+    font-variant: small-caps;
+    animation: headAnim 3s ease-in-out infinite;
+
+}
+
+.wave {
+
+    width: 500px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(800px) rotateX(60deg);
+}
+
+.wave div {
+    border: 10px solid red;
+    display: block;
+    position: absolute;
+    box-shadow: 0 8px 0 #ff0;
+    border-radius: 50%;
+    animation: wave 3s ease-in-out infinite;
+    top: calc(var(--i) * 10px);
+    bottom: calc(var(--i) * 10px);
+    left: calc(var(--i) * 10px);
+    right: calc(var(--i) * 10px);
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateZ(-125px);
+        filter: hue-rotate(360deg);
+    }
+
+    50% {
+        transform: translateZ(125px);
+        filter: hue-rotate(0deg);
+    }
+}
+
+@keyframes headAnim {
+
+    0%,
+    100% {
+        filter: hue-rotate(360deg);
+    }
+
+    50% {
+        filter: hue-rotate(0deg);
+    }
+}
